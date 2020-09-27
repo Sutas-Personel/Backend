@@ -23,7 +23,7 @@ app.use("/notifications", notificationRoute);
 // Connect to DB
 
 mongoose.connect(
-  "mongodb+srv://sutas:sutas1975@cluster0.hbxv1.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority",
+process.env.MONGODB_URI,
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => console.log("connect to db")
 );
