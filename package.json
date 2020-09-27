@@ -19,5 +19,13 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sutas-Personel/Backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sutas-Personel/Backend/issues"
+  },
+  "homepage": "https://github.com/Sutas-Personel/Backend#readme"
 }
