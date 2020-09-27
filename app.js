@@ -12,10 +12,12 @@ app.use(bodyParser.json());
 
 const postRoute = require("./routes/posts");
 const newsRoute = require("./routes/news");
+const storyRoute = require('./routes/story');
 
 
 app.use("/posts", postRoute);
-app.use("/news",newsRoute)
+app.use("/news",newsRoute);
+app.use("/story",storyRoute);
 
 
 // Connect to DB
@@ -34,4 +36,4 @@ app.get("/", (req, res) => {
 
 // Listening
 
-app.listen(3008);
+app.listen(3009);
