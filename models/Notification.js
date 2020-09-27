@@ -10,6 +10,16 @@ const notificationsSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+
+  date: {
+    type: Date,
+    required: true,
+    default: Date.now,
+  },
+  important: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("Notifications", notificationsSchema);
