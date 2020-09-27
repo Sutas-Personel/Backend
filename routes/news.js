@@ -9,6 +9,12 @@ router.get("/", (req, res) => {
   console.log(req.body);
 });
 
+router.get("/getAll", async function (req, res) {
+  News.find({}).then(function (news) { //find arama yapacağı alan {} hepsini
+    res.send(news);
+  });
+});
+
 router.post("/", (req, res) => {
   const news = new News({
     title: req.body.title,
