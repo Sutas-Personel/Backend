@@ -9,4 +9,10 @@ router.get("/", (req, res) => {
   console.log(req.body);
 });
 
+router.get("/getAll", async function (req, res) {
+  Notifications.find({}).then(function (notifications) { //find arama yapacağı alan {} hepsini
+    res.send(notifications);
+  });
+});
+
 module.exports = router;
