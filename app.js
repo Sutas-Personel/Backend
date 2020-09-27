@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-
 require("dotenv/config");
 
 const app = express();
@@ -12,10 +11,12 @@ app.use(bodyParser.json());
 
 const postRoute = require("./routes/posts");
 const newsRoute = require("./routes/news");
+const notifications = require("./routes/notifications");
 const News = require("./models/News");
 
 app.use("/posts", postRoute);
-
+app.use("/notifications", notifications);
+app.use("/news", newsRoute);
 
 // Connect to DB
 
