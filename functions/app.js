@@ -9,9 +9,9 @@ app.use(bodyParser.json());
 
 // Import routes
 
-const postRoute = require("./routes/posts");
-const newsRoute = require("./routes/news");
-const storyRoute = require('./routes/story');
+const postRoute = require("./functions/routes/posts");
+const newsRoute = require("./functions/routes/news");
+const storyRoute = require('./functions/routes/story');
 
 
 app.use("/posts", postRoute);
