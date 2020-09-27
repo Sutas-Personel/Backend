@@ -1,8 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-require("dotenv/config");
+// require("dotenv/config");
 
+const port = process.env.PORT || 3000;
+
+
+require('dotenv').config();
 const app = express();
 
 app.use(bodyParser.json());
@@ -34,6 +38,6 @@ app.get("/", (req, res) => {
 
 // Listening
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log("sunucu ayakta bekliyor");
-});
+app.listen(port);
+
+module.exports = app;
