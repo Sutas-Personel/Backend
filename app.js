@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 // require("dotenv/config");
 
-const port = process.env.PORT || 3000;
+
 
 
  require('dotenv').config();
@@ -38,6 +38,5 @@ app.get("/", (req, res) => {
 
 // Listening
 
-app.listen(port);
-
-module.exports = app;
+var porta = process.env.PORT || 8080;
+app.listen(porta, () => console.log('Example app listening on port 8080!'))
