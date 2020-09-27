@@ -21,12 +21,32 @@ app.use("/story", storyRoute);
 app.use("/notifications", notificationRoute);
 
 // Connect to DB
+var uri =
+  "mongodb+srv://sutas:sutas1975@cluster0.hbxv1.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority";
+var options = {
+  server: {
+    socketOptions: {
+      keepAlive: 300000,
+      connectTimeoutMS: 30000,
+    },
+  },
+  replset: {
+    socketOptions: {
+      keepAlive: 300000,
+      connectTimeoutMS: 30000,
+    },
+  },
+};
 
-mongoose.connect(
-process.env.MONGODB_URI,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  () => console.log("connect to db")
-);
+// mongoose.connect(
+// process.env.MONGODB_URI,
+//   { useNewUrlParser: true, useUnifiedTopology: true },
+//   () => console.log("connect to db")
+// );
+
+mongoose.connect(uri, options);
+var db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error:"));
 
 // Routes
 
