@@ -6,9 +6,9 @@ const bodyParser = require("body-parser");
 const port = process.env.PORT || 3000;
 
 
-/* require('dotenv').config();
+ require('dotenv').config();
 const app = express();
-
+/*
 app.use(bodyParser.json());
 
 // Import routes
@@ -40,4 +40,4 @@ app.get("/", (req, res) => {
 
 app.listen(port);
 
-// module.exports = app;
+module.exports = app;
