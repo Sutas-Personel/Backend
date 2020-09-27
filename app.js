@@ -29,7 +29,7 @@ mongoose.connect(
 // Routes
 
 app.get("/", (req, res) => {
-  res.send("Merhaba dünya");
+  res.send(200,"Merhaba dünya");
 });
 
 // Listening
