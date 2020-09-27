@@ -4,23 +4,20 @@ const functions = require("firebase-functions");
 const bodyParser = require("body-parser");
 require("dotenv/config");
 
-
 const app = express();
-const PORT = process.env.PORT || 5000
 
 app.use(bodyParser.json());
+const PORT = process.env.PORT || 3000;
 
 // Import routes
 
 const postRoute = require("./functions/routes/posts");
 const newsRoute = require("./functions/routes/news");
-const storyRoute = require('./functions/routes/story');
-
+const storyRoute = require("./functions/routes/story");
 
 app.use("/posts", postRoute);
-app.use("/news",newsRoute);
-app.use("/story",storyRoute);
-
+app.use("/news", newsRoute);
+app.use("/story", storyRoute);
 
 // Connect to DB
 
@@ -37,5 +34,6 @@ app.get("/", (req, res) => {
 });
 
 // Listening
-app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
-
+app.listen(process.env.PORT || 3000, () => {
+  console.log("Sunucu ayaktadır.. Çalışıyor...");
+});
