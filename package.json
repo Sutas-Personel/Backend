@@ -1,0 +1,31 @@
+{
+  "name": "sutas",
+  "version": "1.0.0",
+  "description": "api tutorial",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sutas-Personel/Backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sutas-Personel/Backend/issues"
+  },
+  "homepage": "https://github.com/Sutas-Personel/Backend#readme"
+}
