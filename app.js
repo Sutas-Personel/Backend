@@ -34,6 +34,5 @@ app.get("/", (req, res) => {
 });
 
 // Listening
-app.listen(3000, () => {
-  console.log("Sunucu ayaktadır.. Çalışıyor...");
-});
+var porta = process.env.PORT || 8080;
+app.listen(porta, () => console.log("Example app listening on port 8080!"));
