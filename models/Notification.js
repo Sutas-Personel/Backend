@@ -12,4 +12,4 @@ const notificationsSchema = mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("News", notificationsSchema);
+module.exports = mongoose.model("Notifications", notificationsSchema);
