@@ -8,7 +8,7 @@ const bodyParser = require("body-parser");
 
  require('dotenv').config();
 const app = express();
-/*
+
 app.use(bodyParser.json());
 
 // Import routes
@@ -29,7 +29,7 @@ mongoose.connect(
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => console.log("connect to db")
 );
- */
+
 // Routes
 
 app.get("/", (req, res) => {
