@@ -61,6 +61,12 @@ router.patch("/:storyId", async (req, res) => {
   }
 });
 
+router.get("/getAll", async function (req, res) {
+    Story.find({}).then(function (story) { //find arama yapacağı alan {} hepsini
+      res.send(story);
+    });
+  });
+
 function getById(_id) {
   var deferred = Q.defer();
   var dashboard = db.collection("dashboard");
