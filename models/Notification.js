@@ -19,6 +19,8 @@ const notificationsSchema = mongoose.Schema({
   important: {
     type: String,
     required: true,
+    enum:["1","2"],
+    default: "1"
   },
 });
 
