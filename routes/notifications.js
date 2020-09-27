@@ -1,5 +1,5 @@
 const express = require("express");
-const Notifications = require("../models/Notifications.js");
+const Notifications = require("../models/Notification");
 
 const router = express.Router();
 
@@ -8,3 +8,4 @@ router.get("/", (req, res) => {
   res.json(post);
   console.log(req.body);
 });
+module.exports = router;
