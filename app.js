@@ -25,7 +25,8 @@ app.use("/news", newsRoute);
 // Connect to DB
 
 mongoose.connect(
-  process.env.DB_CONNECT,
+  // process.env.DB_CONNECT,
+  "mongodb+srv://sutas:sutas1975@cluster0.hbxv1.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority",
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => console.log("connect to db")
 );
