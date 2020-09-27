@@ -1,29 +1,23 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const functions = require("firebase-functions");
 const bodyParser = require("body-parser");
 // require("dotenv/config");
 
-
-
-
- require('dotenv').config();
+require("dotenv").config();
 const app = express();
-const PORT = process.env.PORT || 5000
+
 
 app.use(bodyParser.json());
 
 // Import routes
 
-const postRoute = require("./functions/routes/posts");
-const newsRoute = require("./functions/routes/news");
-const storyRoute = require('./functions/routes/story');
-
+const postRoute = require("./routes/posts");
+const newsRoute = require("./routes/news");
+const storyRoute = require("./routes/story");
 
 app.use("/posts", postRoute);
-app.use("/news",newsRoute);
-app.use("/story",storyRoute);
-
+app.use("/news", newsRoute);
+app.use("/story", storyRoute);
 
 // Connect to DB
 
@@ -36,11 +30,10 @@ mongoose.connect(
 // Routes
 
 app.get("/", (req, res) => {
-  res.send(200,"Merhaba dünya");
+  res.send(200, "Merhaba dünya");
 });
 
 // Listening
-app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 var porta = process.env.PORT || 8080;
-app.listen(porta, () => console.log('Example app listening on port 8080!'))
+app.listen(porta, () => console.log("Example app listening on port 8080!"));
