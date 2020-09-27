@@ -34,4 +34,6 @@ app.get("/", (req, res) => {
 
 // Listening
 
-app.listen(3006);
+app.listen(process.env.PORT || 3000, () => {
+  console.log("sunucu ayakta bekliyor");
+});
