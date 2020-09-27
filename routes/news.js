@@ -4,9 +4,15 @@ const News = require("../models/News");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-   const post = req.body;
+  const post = req.body;
   res.json(post);
   console.log(req.body);
+});
+
+router.get("/getAll", async function (req, res) {
+  News.find({}).then(function (news) { //find arama yapacağı alan {} hepsini
+    res.send(news);
+  });
 });
 
 router.post("/", (req, res) => {
