@@ -63,29 +63,6 @@ router.patch("/:postId", async (req, res) => {
   }
 });
 
-function getById(_id) {
-  var deferred = Q.defer();
-  var dashboard = db.collection("dashboard");
 
-  db.collection("dashboard")
-    .find({ user_id: ObjectId(_id) })
-    // *****
-    .toArray(function (err, user) {
-      console.log(user);
-      console.log(_id);
-
-      if (err) deferred.reject(err);
-
-      if (user) {
-        // return user (without hashed password)
-        deferred.resolve(_.omit(user, "hash"));
-      } else {
-        // user not found
-        deferred.resolve();
-      }
-    });
-
-  return deferred.promise;
-}
 
 module.exports = router;
