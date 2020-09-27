@@ -7,7 +7,7 @@ require("dotenv/config");
 const app = express();
 
 app.use(bodyParser.json());
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 // Import routes
 
@@ -34,6 +34,6 @@ app.get("/", (req, res) => {
 });
 
 // Listening
-app.listen(process.env.PORT || 3000, () => {
+app.listen(3000, () => {
   console.log("Sunucu ayaktadır.. Çalışıyor...");
 });
