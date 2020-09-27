@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const port = process.env.PORT || 3000;
 
 
-require('dotenv').config();
+/* require('dotenv').config();
 const app = express();
 
 app.use(bodyParser.json());
@@ -29,7 +29,7 @@ mongoose.connect(
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => console.log("connect to db")
 );
-
+ */
 // Routes
 
 app.get("/", (req, res) => {
