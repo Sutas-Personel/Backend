@@ -1,5 +1,5 @@
 {
-  "name": "apitekvideo",
+  "name": "sutas",
   "version": "1.0.0",
   "description": "api tutorial",
   "main": "index.js",
@@ -9,7 +9,7 @@
   "keywords": [
     "nodejs"
   ],
-  "author": "Alperen KEZAy",
+  "author": "fatihemree",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
