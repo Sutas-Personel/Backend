@@ -2,12 +2,13 @@ const express = require("express");
 const mongoose = require("mongoose");
 const functions = require("firebase-functions");
 const bodyParser = require("body-parser");
-require("dotenv/config");
+//require("dotenv/config");
+require("dotenv").config();
 
 const app = express();
 
 app.use(bodyParser.json());
-const PORT = 3000;
+
 
 // Import routes
 
