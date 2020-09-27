@@ -4,7 +4,9 @@ const functions = require("firebase-functions");
 const bodyParser = require("body-parser");
 require("dotenv/config");
 
+
 const app = express();
+const PORT = process.env.PORT || 5000
 
 app.use(bodyParser.json());
 
@@ -23,7 +25,7 @@ app.use("/story",storyRoute);
 // Connect to DB
 
 mongoose.connect(
-  process.env.DB_CONNECT,
+  "mongodb+srv://sutas:sutas1975@cluster0.hbxv1.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority",
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => console.log("connect to db")
 );
@@ -35,5 +37,5 @@ app.get("/", (req, res) => {
 });
 
 // Listening
-
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
