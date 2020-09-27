@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
 
 router.get("/getAll", async function (req, res) {
   News.find({}).then(function (news) { //find arama yapacağı alan {} hepsini
-    res.send(200,news);
+    res.send(news);
   });
 });
 

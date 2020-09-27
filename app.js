@@ -36,6 +36,8 @@ var options = {
       connectTimeoutMS: 30000,
     },
   },
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 };
 
 // mongoose.connect(
