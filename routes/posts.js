@@ -11,6 +11,12 @@ router.get("/", (req, res) => {
   // res.send('burası posts mekanı')
 });
 
+router.get("/getAll", async function (req, res) {
+  Post.find({}).then(function (posts) { //find arama yapacağı alan {} hepsini
+    res.send(200,posts);
+  });
+});
+
 router.post("/", (req, res) => {
   const post = new Post({
     title: req.body.title,
@@ -63,6 +69,34 @@ router.patch("/:postId", async (req, res) => {
   }
 });
 
-
-
 module.exports = router;
+
+
+//asenkron işlem yapmak için
+
+/* router.get("/getAll", async function (req, res) {
+
+try {
+  const posts = await Post.find({});
+const postMap = {};
+posts.forEach((post) => {
+    postMap[post._id] = post;
+});
+
+res.send(postMap);
+
+  } catch (err) {
+    res.json({ mesaage: err });
+  }
+
+});
+//output
+/* {
+    "5f6fd10419166215881a50a2": {
+        "_id": "5f6fd10419166215881a50a2",
+        "title": "ilkData",
+        "description": "ilk deneme",
+        "date": "2020-09-26T23:38:44.130Z",
+        "__v": 0
+    } */
+ 
