@@ -71,7 +71,7 @@ router.get("/getAll", async function (req, res) {
 });router.get("/get", async function (req, res) {
   Story.find({}).then(function (story) {
     //find arama yapacağı alan {} hepsini
-    res.send(200,story);é
+    res.send(200,story);
   });
 });
 
