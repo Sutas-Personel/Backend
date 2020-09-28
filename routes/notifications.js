@@ -12,8 +12,17 @@ router.get("/", (req, res) => {
 router.get("/getAll", async function (req, res) {
   Notifications.find({}).then(function (notifications) {
     //find arama yapacağı alan {} hepsini
-    res.send(200,notifications);
+    res.send(200, notifications);
   });
+});
+
+router.get("/search/:notificationId", async (req, res) => {
+  try {
+    const notification = await Notifications.findById(req.params.notificationId);
+    res.json(notification);
+  } catch (err) {
+    res.json({ mesaage: err });
+  }
 });
 
 router.post("/add", (req, res) => {
@@ -31,8 +40,9 @@ router.post("/add", (req, res) => {
     .catch((err) => {
       res.json({ mesaage: err });
     });
+ });
 
-  router.delete("/:notificationsId", async (req, res) => {
+  router.delete("/delete/:notificationsId", async (req, res) => {
     try {
       const removedPost = await Notifications.remove({
         _id: req.params.notificationsId,
@@ -41,7 +51,22 @@ router.post("/add", (req, res) => {
     } catch (err) {
       res.json({ mesaage: err });
     }
-  });
+ 
+});
+
+router.patch("/update/:notificationsId", async (req, res) => {
+  try {
+    const updateNews = await Notifications.updateOne(
+      { _id: req.params.newsId },
+      { $set: { url: req.body.url } },
+      { $set: { duration: req.body.duration } },
+      { $set: { user: req.body.user } },
+      { $set: { media: req.body.media } }
+    );
+    res.json(updateNews);
+  } catch (err) {
+    res.json({ mesaage: err });
+  }
 });
 
 module.exports = router;

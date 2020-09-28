@@ -35,7 +35,7 @@ router.post("/", (req, res) => {
     });
 });
 
-router.get("/:storyId", async (req, res) => {
+router.get("/search/:storyId", async (req, res) => {
   try {
     const story = await Story.findById(req.params.storyId);
     res.json(story);
@@ -44,7 +44,7 @@ router.get("/:storyId", async (req, res) => {
   }
 });
 
-router.delete("/:storyId", async (req, res) => {
+router.delete("/delete/:storyId", async (req, res) => {
   try {
     const removedStory = await Story.remove({ _id: req.params.newsId });
     res.json(removedStory);
@@ -53,7 +53,7 @@ router.delete("/:storyId", async (req, res) => {
   }
 });
 
-router.patch("update/:storyId", async (req, res) => {
+router.patch("/update/:storyId", async (req, res) => {
   try {
     const updateStory = await Story.updateOne(
       { _id: req.params.newsId },

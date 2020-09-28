@@ -35,7 +35,7 @@ router.post("/", (req, res) => {
 
 // Id göre arama
 
-router.get("/:postId", async (req, res) => {
+router.get("/search/:postId", async (req, res) => {
   try {
     const post = await Post.findById(req.params.postId);
     res.json(post);
@@ -46,7 +46,7 @@ router.get("/:postId", async (req, res) => {
 
 // delete post
 
-router.delete("/:postId", async (req, res) => {
+router.delete("/delete/:postId", async (req, res) => {
   try {
     const removedPost = await Post.remove({ _id: req.params.postId });
     res.json(removedPost);

@@ -45,7 +45,7 @@ router.post("/add", (req, res) => {
 
 
 
-router.delete("delete/:newsId", async (req, res) => {
+router.delete("/delete/:newsId", async (req, res) => {
   try {
     const removedNews = await News.remove({ _id: req.params.newsId });
     res.json(removedNews);
@@ -54,7 +54,7 @@ router.delete("delete/:newsId", async (req, res) => {
   }
 });
 
-router.patch("update/:newsId", async (req, res) => {
+router.patch("/update/:newsId", async (req, res) => {
   try {
     const updateNews = await News.updateOne(
       { _id: req.params.newsId },
