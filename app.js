@@ -22,11 +22,29 @@ app.use("/story", storyRoute);
 
 // Connect to DB
 
-mongoose.connect(
-  "mongodb+srv://sutas:sutas1975@cluster0.hbxv1.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority",
-  { useNewUrlParser: true, useUnifiedTopology: true },
-  () => console.log("connect to db")
-);
+
+var uri =
+  "mongodb+srv://sutas:sutas1975@cluster0.hbxv1.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority";
+var options = {
+  server: {
+    socketOptions: {
+      keepAlive: 300000,
+      connectTimeoutMS: 30000,
+    },
+  },
+  replset: {
+    socketOptions: {
+      keepAlive: 300000,
+      connectTimeoutMS: 30000,
+    },
+  },
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+};
+
+mongoose.connect(uri, options);
+var db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error:"));
 
 // Routes
 
