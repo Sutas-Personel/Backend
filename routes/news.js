@@ -15,6 +15,16 @@ router.get("/getAll", async function (req, res) {
   });
 });
 
+router.get("/search/:newsId", async (req, res) => {
+  try {
+    const news = await News.findById(req.params.newsId);
+    res.json(news);
+  } catch (err) {
+    res.json({ mesaage: err });
+  }
+  
+});
+
 router.post("/add", (req, res) => {
   const news = new News({
     title: req.body.title,
@@ -33,14 +43,7 @@ router.post("/add", (req, res) => {
     });
 });
 
-router.get("search/:newsId", async (req, res) => {
-  try {
-    const news = await News.findById(req.params.newsId);
-    res.json(news);
-  } catch (err) {
-    res.json({ mesaage: err });
-  }
-});
+
 
 router.delete("delete/:newsId", async (req, res) => {
   try {
