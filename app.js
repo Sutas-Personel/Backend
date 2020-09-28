@@ -9,11 +9,13 @@ const app = express();
 app.use(bodyParser.json());
 
 //swagger
-var swaggerUi = require('swagger-ui-express');
-    
-swaggerDocument = require('./swagger.json');
-app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+var swaggerUi = require("swagger-ui-express");
+
+swaggerDocument = require("./swagger.json");
+app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 //
+//swagger statik olarak anasayfaya taşıyor
+
 
 // Import routes
 
@@ -59,9 +61,9 @@ db.on("error", console.error.bind(console, "connection error:"));
 
 // Routes
 
-app.get("/", (req, res) => {
-  res.send(200, "Merhaba dünya");
-});
+/* app.get("/", (req, res) => {
+  res.send("./swagger.json");
+}); */
 
 // Listening
 

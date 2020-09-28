@@ -11,7 +11,7 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     }
   },
-  "host": "sutaspersonel.herokuapp.com",
+  "host": "localhost:8080",
 
   "tags": [
     {
@@ -87,6 +87,92 @@
       }
     },
     "/news/add/": {
+      "post": {
+        "tags": ["News"],
+        "summary": "News add",
+        "description": "",
+
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "$ref": "#/definitions/News"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": { "$ref": "#/definitions/News" }
+          }
+        ]
+      }
+    }
+    ,
+    "/notifications/getAll": {
+      "get": {
+        "tags": ["News"],
+        "summary": "News get list",
+        "description": "",
+
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "$ref": "#/definitions/News"
+            }
+          }
+        }
+      }
+    },
+    "/notifications/search/{newsId}": {
+      "get": {
+        "tags": ["News"],
+        "summary": "News search",
+        "description": "",
+
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "$ref": "#/definitions/News"
+            }
+          }
+        },
+        "parameters": [
+          { "required": true, "type": "string", "name": "newsId", "in": "path" }
+        ]
+      }
+    },
+    "/notifications/delete{newsId}": {
+      "delete": {
+        "tags": ["News"],
+        "summary": "News deleted",
+        "description": "",
+
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "$ref": "#/definitions/News"
+            }
+          }
+        },
+        "parameters": [
+          { "required": true, "type": "string", "name": "newsId", "in": "path" }
+        ]
+      }
+    },
+    "/notifications/add/": {
       "post": {
         "tags": ["News"],
         "summary": "News add",
