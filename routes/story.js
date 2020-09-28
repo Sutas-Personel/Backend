@@ -1,8 +1,14 @@
 const express = require("express");
 const Story = require("../models/Story");
 
-
 const router = express.Router();
+
+router.get("/getAll", async function (req, res) {
+  Story.find({}).then(function (story) {
+    //find arama yapacağı alan {} hepsini
+    res.send(story);
+  });
+});
 
 router.get("/", (req, res) => {
   const post = req.body;
@@ -11,6 +17,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
+  
   const story = new Story({
     url: req.body.url,
     media: req.body.media,
@@ -46,26 +53,20 @@ router.delete("/:storyId", async (req, res) => {
   }
 });
 
-router.patch("/:storyId", async (req, res) => {
+router.patch("update/:storyId", async (req, res) => {
   try {
     const updateStory = await Story.updateOne(
       { _id: req.params.newsId },
       { $set: { url: req.body.url } },
-      { $set: {  media: req.body.media } },
+      { $set: { media: req.body.media } },
       { $set: { duration: req.body.duration } },
-      { $set: {  user: req.body.user } }
+      { $set: { user: req.body.user } }
     );
     res.json(updateStory);
   } catch (err) {
     res.json({ mesaage: err });
   }
 });
-
-router.get("/getAll", async function (req, res) {
-    Story.find({}).then(function (story) { //find arama yapacağı alan {} hepsini
-      res.send(200,story);
-    });
-  });
 
 
 
