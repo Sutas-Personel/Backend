@@ -18,7 +18,7 @@ const storySchema = mongoose.Schema({
   user: {
     type: String,
     required: true,
-  },
+  },s
 });
 
 module.exports = mongoose.model("Story", storySchema);
