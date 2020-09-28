@@ -8,6 +8,13 @@ const app = express();
 
 app.use(bodyParser.json());
 
+//swagger
+var swaggerUi = require('swagger-ui-express');
+    
+swaggerDocument = require('./swagger.json');
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+
 // Import routes
 
 const postRoute = require("./routes/posts");
