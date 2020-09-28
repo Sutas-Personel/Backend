@@ -66,6 +66,13 @@ router.get("/getAll", async function (req, res) {
     //find arama yapacağı alan {} hepsini
     res.send(story);
   });
+
+
+});router.get("/get", async function (req, res) {
+  Story.find({}).then(function (story) {
+    //find arama yapacağı alan {} hepsini
+    res.send(200,story);é
+  });
 });
 
 
