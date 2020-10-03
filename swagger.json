@@ -1,0 +1,429 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Sutas Personel",
+   
+
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "sutaspersonel.herokuapp.com",
+
+  "tags": [
+    {
+      "name": "News"
+    },
+    {
+      "name": "Story"
+    },
+    {
+      "name": "Notification"
+    }
+  ],
+
+  "paths": {
+    "/news/getAll": {
+      "get": {
+        "tags": ["News"],
+        "summary": "News get list",
+        "description": "",
+
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "$ref": "#/definitions/News"
+            }
+          }
+        }
+      }
+    },
+    "/news/search/{newsId}": {
+      "get": {
+        "tags": ["News"],
+        "summary": "News search",
+        "description": "",
+
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "$ref": "#/definitions/News"
+            }
+          }
+        },
+        "parameters": [
+          { "required": true, "type": "string", "name": "newsId", "in": "path" }
+        ]
+      }
+    },
+    "/news/delete{newsId}": {
+      "delete": {
+        "tags": ["News"],
+        "summary": "News deleted",
+        "description": "",
+
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "$ref": "#/definitions/News"
+            }
+          }
+        },
+        "parameters": [
+          { "required": true, "type": "string", "name": "newsId", "in": "path" }
+        ]
+      }
+    },
+    "/news/update/{newsId}": {
+      "patch": {
+        "tags": ["News"],
+        "summary": "News update",
+        "description": "",
+
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "$ref": "#/definitions/News"
+            }
+          }
+        },
+        "parameters": [
+          { "required": true, "type": "string", "name": "newsId", "in": "path" }
+        ]
+      }
+    },
+    "/news/add/": {
+      "post": {
+        "tags": ["News"],
+        "summary": "News add",
+        "description": "",
+
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "$ref": "#/definitions/News"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": { "$ref": "#/definitions/News" }
+          }
+        ]
+      }
+    },
+    "/notifications/getAll": {
+      "get": {
+        "tags": ["Notification"],
+        "summary": "Notifications get list",
+        "description": "",
+
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "$ref": "#/definitions/Notifications"
+            }
+          }
+        }
+      }
+    },
+    "/notifications/search/{notificationId}": {
+      "get": {
+        "tags": ["Notification"],
+        "summary": "Notification search",
+        "description": "",
+
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "$ref": "#/definitions/Notification"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "required": true,
+            "type": "string",
+            "name": "notificationId",
+            "in": "path"
+          }
+        ]
+      }
+    },
+    "/notifications/delete/{notificationId}": {
+      "delete": {
+        "tags": ["Notification"],
+        "summary": "Notification deleted",
+        "description": "",
+
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "$ref": "#/definitions/Notification"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "required": true,
+            "type": "string",
+            "name": "notificationId",
+            "in": "path"
+          }
+        ]
+      }
+    },"/notifications/update/{notificationId}": {
+      "patch": {
+        "tags": ["Notification"],
+        "summary": "Notification update",
+        "description": "",
+
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "$ref": "#/definitions/Notification"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "required": true,
+            "type": "string",
+            "name": "notificationId",
+            "in": "path"
+          }
+        ]
+      }
+    },
+    "/notifications/add/": {
+      "post": {
+        "tags": ["Notification"],
+        "summary": "Notification add",
+        "description": "",
+
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "$ref": "#/definitions/Notification"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": { "$ref": "#/definitions/Notification" }
+          }
+        ]
+      }
+    },
+    "/story/getAll": {
+      "get": {
+        "tags": ["Story"],
+        "summary": "Story get list",
+        "description": "",
+
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "$ref": "#/definitions/Story"
+            }
+          }
+        }
+      }
+    },
+    "/story/search/{storyId}": {
+      "get": {
+        "tags": ["Story"],
+        "summary": "Story search",
+        "description": "",
+
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "$ref": "#/definitions/Story"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "required": true,
+            "type": "string",
+            "name": "storyId",
+            "in": "path"
+          }
+        ]
+      }
+    },
+    "/story/delete{storyId}": {
+      "delete": {
+        "tags": ["Story"],
+        "summary": "Story deleted",
+        "description": "",
+
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "$ref": "#/definitions/Story"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "required": true,
+            "type": "string",
+            "name": "storyId",
+            "in": "path"
+          }
+        ]
+      }
+    },
+    "/story/update/{storyId}": {
+      "patch": {
+        "tags": ["Story"],
+        "summary": "Story update",
+        "description": "",
+
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "$ref": "#/definitions/Story"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "required": true,
+            "type": "string",
+            "name": "storyId",
+            "in": "path"
+          }
+        ]
+      }
+    },
+    "/story/add/": {
+      "post": {
+        "tags": ["Story"],
+        "summary": "Story add",
+        "description": "",
+
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "$ref": "#/definitions/Notification"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": { "$ref": "#/definitions/Notification" }
+          }
+        ]
+      }
+    }
+  },
+
+  "definitions": {
+    "News": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "Notification": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "Story": {
+      "type": "object",
+      "properties": {
+        "media": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "string"
+        },
+        "user": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

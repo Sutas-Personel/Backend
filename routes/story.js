@@ -1,8 +1,14 @@
 const express = require("express");
 const Story = require("../models/Story");
 
-
 const router = express.Router();
+
+router.get("/getAll", async function (req, res) {
+  Story.find({}).then(function (story) {
+    //find arama yapacağı alan {} hepsini
+    res.send(story);
+  });
+});
 
 router.get("/", (req, res) => {
   const post = req.body;
@@ -11,6 +17,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
+  
   const story = new Story({
     url: req.body.url,
     media: req.body.media,
@@ -28,7 +35,7 @@ router.post("/", (req, res) => {
     });
 });
 
-router.get("/:storyId", async (req, res) => {
+router.get("/search/:storyId", async (req, res) => {
   try {
     const story = await Story.findById(req.params.storyId);
     res.json(story);
@@ -37,7 +44,7 @@ router.get("/:storyId", async (req, res) => {
   }
 });
 
-router.delete("/:storyId", async (req, res) => {
+router.delete("/delete/:storyId", async (req, res) => {
   try {
     const removedStory = await Story.remove({ _id: req.params.newsId });
     res.json(removedStory);
@@ -46,14 +53,14 @@ router.delete("/:storyId", async (req, res) => {
   }
 });
 
-router.patch("/:storyId", async (req, res) => {
+router.patch("/update/:storyId", async (req, res) => {
   try {
     const updateStory = await Story.updateOne(
       { _id: req.params.newsId },
       { $set: { url: req.body.url } },
-      { $set: {  media: req.body.media } },
+      { $set: { media: req.body.media } },
       { $set: { duration: req.body.duration } },
-      { $set: {  user: req.body.user } }
+      { $set: { user: req.body.user } }
     );
     res.json(updateStory);
   } catch (err) {
@@ -61,35 +68,6 @@ router.patch("/:storyId", async (req, res) => {
   }
 });
 
-router.get("/getAll", async function (req, res) {
-    Story.find({}).then(function (story) { //find arama yapacağı alan {} hepsini
-      res.send(story);
-    });
-  });
 
-function getById(_id) {
-  var deferred = Q.defer();
-  var dashboard = db.collection("dashboard");
-
-  db.collection("dashboard")
-    .find({ user_id: ObjectId(_id) })
-    // *****
-    .toArray(function (err, user) {
-      console.log(user);
-      console.log(_id);
-
-      if (err) deferred.reject(err);
-
-      if (user) {
-        // return user (without hashed password)
-        deferred.resolve(_.omit(user, "hash"));
-      } else {
-        // user not found
-        deferred.resolve();
-      }
-    });
-
-  return deferred.promise;
-}
 
 module.exports = router;

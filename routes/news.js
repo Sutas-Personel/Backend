@@ -15,7 +15,17 @@ router.get("/getAll", async function (req, res) {
   });
 });
 
-router.post("/", (req, res) => {
+router.get("/search/:newsId", async (req, res) => {
+  try {
+    const news = await News.findById(req.params.newsId);
+    res.json(news);
+  } catch (err) {
+    res.json({ mesaage: err });
+  }
+  
+});
+
+router.post("/add", (req, res) => {
   const news = new News({
     title: req.body.title,
     description: req.body.description,
@@ -33,16 +43,9 @@ router.post("/", (req, res) => {
     });
 });
 
-router.get("/:newsId", async (req, res) => {
-  try {
-    const news = await News.findById(req.params.newsId);
-    res.json(news);
-  } catch (err) {
-    res.json({ mesaage: err });
-  }
-});
 
-router.delete("/:newsId", async (req, res) => {
+
+router.delete("/delete/:newsId", async (req, res) => {
   try {
     const removedNews = await News.remove({ _id: req.params.newsId });
     res.json(removedNews);
@@ -51,7 +54,7 @@ router.delete("/:newsId", async (req, res) => {
   }
 });
 
-router.patch("/:newsId", async (req, res) => {
+router.patch("/update/:newsId", async (req, res) => {
   try {
     const updateNews = await News.updateOne(
       { _id: req.params.newsId },
